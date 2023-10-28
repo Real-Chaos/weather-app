@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: none;
 }
 
 body {
@@ -53,7 +54,8 @@ p {
 .left .input {
   border-bottom: 1px solid white;
   padding: 3px 10px;
-  width: 40%;
+  width: 210px;
+  display: flex;
 }
 
 .left input {
@@ -83,10 +85,11 @@ p {
 
 .right div div {
   display: grid;
-  gap: 1px;
 }
 
-.special-icon {
+
+
+.summary-icon i {
   font-size: 100px;
 }
 
