@@ -4,7 +4,7 @@ const fetchData = async (location) => {
 		{ mode: 'cors' },
 	)
 	const data = await response.json()
-	return data.forecast.forecastday
+	return data
 }
 
 export default fetchData
