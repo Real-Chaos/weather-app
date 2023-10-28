@@ -16,9 +16,13 @@ body {
   overflow: none;
 }
 
+p {
+  font-family: 'Courier New', Courier, monospace;
+}
+
 
 .weather-container {
-  padding: 5% 4% 2% 4%;
+  padding: 5% 2% 2% 4%;
 }
 
 
@@ -28,13 +32,17 @@ body {
   padding: 0 5%;
 }
 
+.current-condition {
+  font-size: 90px;
+}
+
 .left {
   display: grid;
   gap: 10px;
 }
 
 .temp-oversize {
-  font-size: 50px;
+  font-size: 80px;
 }
 
 .change-display {
@@ -45,6 +53,7 @@ body {
 .left .input {
   border-bottom: 1px solid white;
   padding: 3px 10px;
+  width: 40%;
 }
 
 .left input {
@@ -86,7 +95,7 @@ body {
 }
 
 .forecast-section {
-  margin-top: 20vh;
+  margin-top: 9vh;
 }
 
 .forecast-section .forecast-nav ul {
@@ -94,7 +103,7 @@ body {
   list-style: none;
   gap: 20px;
   margin-bottom: 20px;
-  margin-left: 5%;
+  margin-left: 4.5%;
   font-weight: bolder;
   font-size: 13px;
 }
