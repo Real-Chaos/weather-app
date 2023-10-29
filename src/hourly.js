@@ -21,22 +21,23 @@ const hourly = (data) => {
 	}
 
 	console.log(data)
+  forecastCards.forEach(card => card.innerHTML = "")
 
 	data.forecast.forecastday[0].hour.forEach((hour, i) => {
 		const time = format(new Date(hour.time), 'h a')
 		const card = createCard(time, hour.temp_c, hour.condition.icon)
 		if (i < 8) {
 			// firstEight.innerHTML += card
+      
 			forecastCards[0].innerHTML += card
 		} else if (i >= 8 && i < 16) {
+      
 			forecastCards[1].innerHTML += card
 		} else if (i >= 16 && i <= 24) {
+      
 			forecastCards[2].innerHTML += card
 		}
 	})
-
-	// createCard()
-	// forecast.innerHTML = ''
 }
 
 export default hourly

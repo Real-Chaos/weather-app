@@ -108,6 +108,10 @@ p {
 	align-items: center;
 }
 
+.daily-div, .hourly-div {
+  cursor: pointer;
+}
+
 .forecast-nav .hourly-indicators {
 	display: flex;
 	gap: 10px;
@@ -153,4 +157,10 @@ p {
 	display: grid;
 	grid-template-columns: repeat(8, 1fr);
   justify-items: center;
+}
+
+
+.selected {
+  border: solid white;
+  padding: 3px 10px;
 }
