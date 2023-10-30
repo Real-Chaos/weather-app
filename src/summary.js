@@ -1,6 +1,6 @@
 import format from 'date-fns/format'
 
-const summary = (data) => {
+const summary = (data, unit) => {
 	const condition = data.current.condition.text.toLowerCase()
 	const icons = {
 		sunny: 'fa-sun',
@@ -38,14 +38,14 @@ else if(condition.includes('mist')) icon.classList.add(icons.misty)
 
 	const currentTemp = document.querySelector('.temp-oversize')
 
-	currentTemp.textContent = data.current.temp_c + ' °C'
+	currentTemp.textContent = Math.round((unit === 'C' ? data.current.temp_c: data.current.temp_f)) + " °" + unit
 
 	const specialIcon = document.querySelector('.summary-icon')
 	specialIcon.textContent = ''
   specialIcon.appendChild(icon)
 
 	const feelsLike = document.querySelector('.feels-like')
-	feelsLike.textContent = data.current.feelslike_c + ' °C'
+	feelsLike.textContent = Math.round((unit === 'C' ? data.current.feelslike_c: data.current.feelslike_f)) + " °" + unit
 
 	const humidity = document.querySelector('.humidity-text')
 	humidity.textContent = data.current.humidity + ' %'

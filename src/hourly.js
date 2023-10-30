@@ -1,5 +1,5 @@
 import format from 'date-fns/format'
-const hourly = (data) => {
+const hourly = (data, unit) => {
 	const forecastCards = document.querySelectorAll('.hourly-forecast-cards')
 
 	const createCard = (time, maxTemp, icon) => {
@@ -7,7 +7,7 @@ const hourly = (data) => {
     <div class="forecast-card">
       <p>${time}</p>
       <div class="temperature">
-        <h1>${maxTemp} °C</h1>
+        <h1>${maxTemp} °${unit}</h1>
       </div>
       <img src="https:${icon}" alt="" />
     </div>`
@@ -16,7 +16,7 @@ const hourly = (data) => {
 	}
 
 	forecastCards.forEach((card) => (card.innerHTML = ''))
-  console.log(data)
+
 
 	const totalHours = []
 	data.forecast.forecastday[0].hour.forEach((hour, i) => {
@@ -32,7 +32,8 @@ const hourly = (data) => {
 
 	totalHours.forEach((hour, i) => {
 		const time = format(new Date(hour.time), 'h a')
-		const card = createCard(time, hour.temp_c, hour.condition.icon)
+    const temp = Math.round(unit === "F" ? hour.temp_f: hour.temp_c)
+		const card = createCard(time, temp, hour.condition.icon)
 		if (i < 8) {
 			forecastCards[0].innerHTML += card
 		} else if (i >= 8 && i < 16) {
@@ -42,9 +43,7 @@ const hourly = (data) => {
 		}
 	})
 
-  console.log(data.location.name.split(" ").join("_"))
 
-  console.log(new Date().toLocaleString({timeZone: `${data.location.country}/${data.location.name.split(" ").join("_")}`}))
 }
 
 export default hourly
