@@ -19,9 +19,9 @@ const summary = (data) => {
 else if(condition.includes('sun') || condition.includes('clear')) icon.classList.add(icons.sunny)
 else if(condition.includes('mist')) icon.classList.add(icons.misty)
 
-	const date = format(new Date(), 'eeee, do MMM')
+	const date = format(new Date(data.location.localtime), 'eeee, do MMM')
 
-	const time = format(new Date(), 'h:m b')
+	const time = format(new Date(data.location.localtime), 'h:mm b')
 
 	const currentCondition = document.querySelector('.current-condition')
 	currentCondition.textContent = data.current.condition.text
